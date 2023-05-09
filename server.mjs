@@ -1,12 +1,9 @@
 import { createServer } from 'http'
 
-console.log('createServer')
 const server = createServer((request, response) => {
-    console.log('createServer callback')
     response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
     const url = new URL(request.url, 'http://localhost:8080')
-    console.log(url)
-    console.log('Name: ', url.searchParams.get('name'))
+    debugger
     const body = `<!DOCTYPE html>
     <html>
     <head>
@@ -22,7 +19,6 @@ const server = createServer((request, response) => {
     response.end(body)
 })
 
-console.log('listen')
 server.listen(8080, () => {
     console.log(`Server is listening to http://localhost:${server.address().port}`)
 })
